@@ -37,20 +37,24 @@ exports.up = function (knex) {
         .unsigned()
         .references('id')
         .inTable('zoo')
-        .onDelete('CASCADE')
+        .onDelete('RESTRICT')
         .onUpdate('CASCADE')
 
-      // species foreign key
+      // animals foreign key
       table
-        .integer('species_id')
+        .integer('animal_id')
         .unsigned()
         .references('id')
-        .inTable('species')
-        .onDelete('CASCADE')
+        .inTable('animals')
+        .onDelete('RESTRICT')
         .onUpdate('CASCADE')
     })
 };
 
 exports.down = function (knex) {
-
+  return knex.schema
+    .dropTableIfExists('animal_zoos')
+    .dropTableIfExists('zoos')
+    .dropTableIfExists('animals')
+    .dropTableIfExists('species')
 };
