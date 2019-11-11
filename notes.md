@@ -47,6 +47,8 @@ Label any relationships between table.
  _one species can have many animals_
  _there can be many animals in many zoos_
 
+ -
+
 ## Mantras
 
  - every table must have a **Primary Key**
